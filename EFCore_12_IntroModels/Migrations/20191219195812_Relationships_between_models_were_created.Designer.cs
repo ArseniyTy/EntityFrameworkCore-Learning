@@ -3,14 +3,16 @@ using EFCore_12_IntroModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFCore_12_IntroModels.Migrations
 {
     [DbContext(typeof(HumanContext))]
-    partial class HumanContextModelSnapshot : ModelSnapshot
+    [Migration("20191219195812_Relationships_between_models_were_created")]
+    partial class Relationships_between_models_were_created
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

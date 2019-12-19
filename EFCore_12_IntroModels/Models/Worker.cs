@@ -11,14 +11,7 @@ namespace EFCore_12_IntroModels.Models
         public int Age { get; set; }
         public int Salary { get; set; }
         public string Profession { get; set; }
-
-        //public Worker(int id, string name, int age, int salary, string profession)
-        //{
-        //    Id = id;
-        //    Name = name;
-        //    Age = age;
-        //    Salary = salary;
-        //    Profession = profession;
-        //}
+        public string CountryName { get; set; }
+        public Country Country { get; set; }
     }
 }

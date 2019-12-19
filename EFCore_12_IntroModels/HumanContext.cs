@@ -9,6 +9,7 @@ namespace EFCore_12_IntroModels
     public class HumanContext : DbContext
     {
         public DbSet<Worker> Workers { get; set; }
+        public DbSet<Country> Countries { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -16,6 +17,7 @@ namespace EFCore_12_IntroModels
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Fluent API
             modelBuilder.Entity<Worker>()
                                         .Property(w => w.Id)
                                         .HasColumnName("Worker ID");
@@ -23,6 +25,16 @@ namespace EFCore_12_IntroModels
                                         .Property(w => w.Age).HasDefaultValue(18);
             modelBuilder.Entity<Worker>()
                                         .Property(w => w.Name).IsRequired();
+
+            //Change Key
+            modelBuilder.Entity<Country>().HasKey(c => c.Name);
+
+
+            //Relationships between models
+            modelBuilder.Entity<Worker>()
+                .HasOne(w => w.Country)
+                .WithMany(c => c.NationalWorkers)
+                .HasForeignKey(w => w.CountryName);
         }
     }
 }
