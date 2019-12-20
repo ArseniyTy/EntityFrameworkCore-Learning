@@ -30,11 +30,12 @@ namespace EFCore_12_IntroModels
             modelBuilder.Entity<Country>().HasKey(c => c.Name);
 
 
-            //Relationships between models
+            //One-to-many
             modelBuilder.Entity<Worker>()
                 .HasOne(w => w.Country)
                 .WithMany(c => c.NationalWorkers)
-                .HasForeignKey(w => w.CountryName);
+                .HasForeignKey(w => w.CountryName)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

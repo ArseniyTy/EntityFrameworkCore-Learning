@@ -11,7 +11,9 @@ namespace EFCore_12_IntroModels.Models
         public int Age { get; set; }
         public int Salary { get; set; }
         public string Profession { get; set; }
-        public string CountryName { get; set; }
-        public Country Country { get; set; }
+
+        //One to many (in dependent)
+        public string CountryName { get; set; } //foreign key (then set by Fluent API)
+        public Country Country { get; set; } //reference navigation property
     }
 }
